@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  输入：<input type='text' id='inputText'/><br>
+  动态值：<span id="show"></span>
+</body>
+<script>
+  const inpuntText = document.getElementById('inputText');
+  const show = document.getElementById('show');
+
+  const defineObj = { value: '' }
+  inpuntText.addEventListener('input', function(e) {
+    defineObj.value = e.target.value;
+  })
+
+  Object.defineProperty(defineObj, 'value', {
+    get: () => {
+      return val
+    },
+    set: (newVal) => {
+      val = newVal
+      show.innerHTML = val;
+    }
+  })
+</script>
+</html>
